@@ -7,11 +7,12 @@ import {
   SafeAreaView,
   Pressable,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import IonIcons from "@expo/vector-icons/Ionicons";
 import AuthButton from "../components/AuthButton";
-import CheckBox from "@react-native-community/checkbox";
+import Checkbox from "expo-checkbox";
 
 const SignupScreen = ({ navigation }) => {
   return (
@@ -52,12 +53,22 @@ const SignupScreen = ({ navigation }) => {
           secureTextEntry
         />
       </View>
-      <View>
-        <Text>
-          I have read the <Text>Privacy Policy</Text>
+      <View style={styles.policy}>
+        <Text style={styles.policyText}>
+          I have read the{" "}
+          <Text style={styles.policyTextSpan}>Privacy Policy</Text>
         </Text>
-        <CheckBox disabled={false} />
+        <Checkbox width={30} />
       </View>
+      <TouchableOpacity
+        style={styles.signupBtn}
+        activeOpacity={0.8}
+        onPress={() => {
+          navigation.push("Home");
+        }}
+      >
+        <Text style={styles.signupBtnText}>Get Started</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -116,5 +127,38 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     width: "100%",
     fontSize: 16,
+  },
+
+  policy: {
+    width: "95%",
+    paddingHorizontal: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignSelf: "center",
+  },
+
+  policyText: {
+    fontSize: 20,
+    color: "#A1A4B2",
+    fontWeight: 500,
+  },
+
+  policyTextSpan: {
+    color: "#7583CA",
+  },
+
+  signupBtn: {
+    padding: 20,
+    backgroundColor: "#8E97FD",
+    width: "95%",
+    alignSelf: "center",
+    marginTop: "10%",
+    borderRadius: 40,
+    alignItems: "center",
+  },
+
+  signupBtnText: {
+    fontSize: 20,
+    color: "#fff",
   },
 });

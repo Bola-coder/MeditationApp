@@ -42,7 +42,7 @@ export default AuthButton;
 const styles = StyleSheet.create({
   btn: {
     width: "95%",
-    padding: 20,
+    padding: 15,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 500,
     flex: 6,
   },
